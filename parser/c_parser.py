@@ -6,17 +6,27 @@ import collections
 
 from lexer import tokens
 
+def traverse_post_order(root):
+    result = []
+
+    def recurse(node):
+        if node is None:
+            return
+        if type(node.children) == list:
+            for item in node.children:
+                recurse(item)
+        else:
+            recurse(node.children)
+
+        result.append(node)
+
+    recurse(root)
+
+    return result
 
 class AST():
-    def traverse_post_order(self, root):
-        if root.children is not None:
-            if type(root.children) == list:
-                for item in root.children:
-                    self.traverse_post_order(item)
-            else:
-                self.traverse_post_order(root.children)
+    pass
 
-            print(root)
 
 class program_node(AST):
     def __init__(self,statement):
@@ -25,13 +35,13 @@ class program_node(AST):
 
 
 class function_node(AST):
-    def __init__(self, type_,name,arguments,body):
+    def __init__(self, type_,name,body):
         self.type = type_
         self.name = name
-        self.children = [arguments,body]
+        self.children = body
 
     def __repr__(self):
-        return "function: " + self.name + "::" + self.type + ', ' + str(self.children[0]) + ', ' + str(self.children[1])
+        return "function: " + self.name + "::" + self.type #+ ', ' + str(self.children[0]) + ', ' + str(self.children[1])
     
 
 class constant_node(AST):
@@ -47,14 +57,14 @@ class statement_node(AST):
         self.children = statements
 
     def __repr__(self):
-        return 'statement: ' + str(self.children)
+        return 'statement'
 
 class return_node(AST):
-    def __init__(self, statements):
-        self.children = statements
+    def __init__(self):
+        self.children = None
 
     def __repr__(self):
-        return 'return: ' + str(self.children)
+        return 'return'
 
 class arguments_node(AST):
     def __init__(self, statements):
@@ -82,7 +92,7 @@ def p_program(t):
 
 def p_function(t):
     '''function : INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE'''
-    t[0] = function_node(t[1], t[2], arguments_node(None), t[6])
+    t[0] = function_node(t[1], t[2], t[6])
 
 def p_exp(t):
     '''exp : INTEGER'''
@@ -92,7 +102,7 @@ def p_exp(t):
 def p_statement(t): #expression as list!
     '''statement : RETURN exp SEMICOLON
                   '''
-    t[0] = statement_node(return_node(t[2]))
+    t[0] = statement_node([return_node(), t[2]])
 
   
 def p_error(t):
@@ -107,24 +117,6 @@ def get_parser():
     return yacc.yacc() 
 
 
-def closure(list_to_traverse):
-    nodes_visited = []
-
-    def traverse_post_order(list_to_traverse):
-        list_to_traverse = list_to_traverse[1]
-
-        for item in reversed(list_to_traverse):
-            if type(item[1]) == list:
-                traverse_post_order(item)
-                print(item)
-                nodes_visited.append(item)
-            else:
-                nodes_visited.append(item)
-                print (item)
-    
-    traverse_post_order(list_to_traverse)
-    return nodes_visited
-
 if __name__ == '__main__':
     s = '''int main() {
     return 2;
@@ -136,5 +128,8 @@ if __name__ == '__main__':
 
     result = parser_instance.parse(s)
 
-    result.traverse_post_order(result)
+    result = traverse_post_order(result)
+
+    for item in reversed(result):
+        print(item)
 
