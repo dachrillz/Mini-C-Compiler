@@ -2,144 +2,135 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
 Grammar
 
-Rule 0     S' -> expression
-Rule 1     expression -> LPAREN explist RPAREN
-Rule 2     explist -> expression
-Rule 3     explist -> explist expression
-Rule 4     expression -> NUMBER
-Rule 5     expression -> SYMBOL
-Rule 6     expression -> LPAREN RPAREN
+Rule 0     S' -> program
+Rule 1     program -> function
+Rule 2     function -> INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE
+Rule 3     exp -> INTEGER
+Rule 4     statement -> RETURN exp SEMICOLON
 
 Terminals, with rules where they appear
 
-LPAREN               : 1 6
-NUMBER               : 4
-RPAREN               : 1 6
-SYMBOL               : 5
+IDENTIFIER           : 2
+INT                  : 2
+INTEGER              : 3
+LBRACE               : 2
+LPAREN               : 2
+RBRACE               : 2
+RETURN               : 4
+RPAREN               : 2
+SEMICOLON            : 4
 error                : 
 
 Nonterminals, with rules where they appear
 
-explist              : 1 3
-expression           : 2 3 0
+exp                  : 4
+function             : 1
+program              : 0
+statement            : 2
 
 Parsing method: LALR
 
 state 0
 
-    (0) S' -> . expression
-    (1) expression -> . LPAREN explist RPAREN
-    (4) expression -> . NUMBER
-    (5) expression -> . SYMBOL
-    (6) expression -> . LPAREN RPAREN
+    (0) S' -> . program
+    (1) program -> . function
+    (2) function -> . INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE
 
-    LPAREN          shift and go to state 3
-    NUMBER          shift and go to state 4
-    SYMBOL          shift and go to state 2
+    INT             shift and go to state 2
 
-    expression                     shift and go to state 1
+    function                       shift and go to state 3
+    program                        shift and go to state 1
 
 state 1
 
-    (0) S' -> expression .
+    (0) S' -> program .
 
 
 
 state 2
 
-    (5) expression -> SYMBOL .
+    (2) function -> INT . IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE
 
-    RPAREN          reduce using rule 5 (expression -> SYMBOL .)
-    LPAREN          reduce using rule 5 (expression -> SYMBOL .)
-    NUMBER          reduce using rule 5 (expression -> SYMBOL .)
-    SYMBOL          reduce using rule 5 (expression -> SYMBOL .)
-    $end            reduce using rule 5 (expression -> SYMBOL .)
+    IDENTIFIER      shift and go to state 4
 
 
 state 3
 
-    (1) expression -> LPAREN . explist RPAREN
-    (6) expression -> LPAREN . RPAREN
-    (2) explist -> . expression
-    (3) explist -> . explist expression
-    (1) expression -> . LPAREN explist RPAREN
-    (4) expression -> . NUMBER
-    (5) expression -> . SYMBOL
-    (6) expression -> . LPAREN RPAREN
+    (1) program -> function .
 
-    RPAREN          shift and go to state 7
-    LPAREN          shift and go to state 3
-    NUMBER          shift and go to state 4
-    SYMBOL          shift and go to state 2
+    $end            reduce using rule 1 (program -> function .)
 
-    explist                        shift and go to state 6
-    expression                     shift and go to state 5
 
 state 4
 
-    (4) expression -> NUMBER .
+    (2) function -> INT IDENTIFIER . LPAREN RPAREN LBRACE statement RBRACE
 
-    RPAREN          reduce using rule 4 (expression -> NUMBER .)
-    LPAREN          reduce using rule 4 (expression -> NUMBER .)
-    NUMBER          reduce using rule 4 (expression -> NUMBER .)
-    SYMBOL          reduce using rule 4 (expression -> NUMBER .)
-    $end            reduce using rule 4 (expression -> NUMBER .)
+    LPAREN          shift and go to state 5
 
 
 state 5
 
-    (2) explist -> expression .
+    (2) function -> INT IDENTIFIER LPAREN . RPAREN LBRACE statement RBRACE
 
-    RPAREN          reduce using rule 2 (explist -> expression .)
-    LPAREN          reduce using rule 2 (explist -> expression .)
-    NUMBER          reduce using rule 2 (explist -> expression .)
-    SYMBOL          reduce using rule 2 (explist -> expression .)
+    RPAREN          shift and go to state 6
 
 
 state 6
 
-    (1) expression -> LPAREN explist . RPAREN
-    (3) explist -> explist . expression
-    (1) expression -> . LPAREN explist RPAREN
-    (4) expression -> . NUMBER
-    (5) expression -> . SYMBOL
-    (6) expression -> . LPAREN RPAREN
+    (2) function -> INT IDENTIFIER LPAREN RPAREN . LBRACE statement RBRACE
 
-    RPAREN          shift and go to state 9
-    LPAREN          shift and go to state 3
-    NUMBER          shift and go to state 4
-    SYMBOL          shift and go to state 2
+    LBRACE          shift and go to state 7
 
-    expression                     shift and go to state 8
 
 state 7
 
-    (6) expression -> LPAREN RPAREN .
+    (2) function -> INT IDENTIFIER LPAREN RPAREN LBRACE . statement RBRACE
+    (4) statement -> . RETURN exp SEMICOLON
 
-    RPAREN          reduce using rule 6 (expression -> LPAREN RPAREN .)
-    LPAREN          reduce using rule 6 (expression -> LPAREN RPAREN .)
-    NUMBER          reduce using rule 6 (expression -> LPAREN RPAREN .)
-    SYMBOL          reduce using rule 6 (expression -> LPAREN RPAREN .)
-    $end            reduce using rule 6 (expression -> LPAREN RPAREN .)
+    RETURN          shift and go to state 8
 
+    statement                      shift and go to state 9
 
 state 8
 
-    (3) explist -> explist expression .
+    (4) statement -> RETURN . exp SEMICOLON
+    (3) exp -> . INTEGER
 
-    RPAREN          reduce using rule 3 (explist -> explist expression .)
-    LPAREN          reduce using rule 3 (explist -> explist expression .)
-    NUMBER          reduce using rule 3 (explist -> explist expression .)
-    SYMBOL          reduce using rule 3 (explist -> explist expression .)
+    INTEGER         shift and go to state 10
 
+    exp                            shift and go to state 11
 
 state 9
 
-    (1) expression -> LPAREN explist RPAREN .
+    (2) function -> INT IDENTIFIER LPAREN RPAREN LBRACE statement . RBRACE
 
-    RPAREN          reduce using rule 1 (expression -> LPAREN explist RPAREN .)
-    LPAREN          reduce using rule 1 (expression -> LPAREN explist RPAREN .)
-    NUMBER          reduce using rule 1 (expression -> LPAREN explist RPAREN .)
-    SYMBOL          reduce using rule 1 (expression -> LPAREN explist RPAREN .)
-    $end            reduce using rule 1 (expression -> LPAREN explist RPAREN .)
+    RBRACE          shift and go to state 12
+
+
+state 10
+
+    (3) exp -> INTEGER .
+
+    SEMICOLON       reduce using rule 3 (exp -> INTEGER .)
+
+
+state 11
+
+    (4) statement -> RETURN exp . SEMICOLON
+
+    SEMICOLON       shift and go to state 13
+
+
+state 12
+
+    (2) function -> INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE .
+
+    $end            reduce using rule 2 (function -> INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE .)
+
+
+state 13
+
+    (4) statement -> RETURN exp SEMICOLON .
+
+    RBRACE          reduce using rule 4 (statement -> RETURN exp SEMICOLON .)
 

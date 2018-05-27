@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'LPAREN NUMBER RPAREN SYMBOLexpression : LPAREN explist RPAREN\n                   explist : expression\n                | explist expression\n    expression : NUMBERexpression : SYMBOLexpression : LPAREN RPAREN'
+_lr_signature = 'IDENTIFIER INT INTEGER LBRACE LPAREN RBRACE RETURN RPAREN SEMICOLONprogram : functionfunction : INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACEexp : INTEGERstatement : RETURN exp SEMICOLON\n                  '
     
-_lr_action_items = {'SYMBOL':([0,2,3,4,5,6,7,8,9,],[2,-5,2,-4,-2,2,-6,-3,-1,]),'LPAREN':([0,2,3,4,5,6,7,8,9,],[3,-5,3,-4,-2,3,-6,-3,-1,]),'$end':([1,2,4,7,9,],[0,-5,-4,-6,-1,]),'NUMBER':([0,2,3,4,5,6,7,8,9,],[4,-5,4,-4,-2,4,-6,-3,-1,]),'RPAREN':([2,3,4,5,6,7,8,9,],[-5,7,-4,-2,9,-6,-3,-1,]),}
+_lr_action_items = {'SEMICOLON':([10,11,],[-3,13,]),'RPAREN':([5,],[6,]),'LPAREN':([4,],[5,]),'$end':([1,3,12,],[0,-1,-2,]),'INTEGER':([8,],[10,]),'INT':([0,],[2,]),'RBRACE':([9,13,],[12,-4,]),'LBRACE':([6,],[7,]),'RETURN':([7,],[8,]),'IDENTIFIER':([2,],[4,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'explist':([3,],[6,]),'expression':([0,3,6,],[1,5,8,]),}
+_lr_goto_items = {'statement':([7,],[9,]),'function':([0,],[3,]),'program':([0,],[1,]),'exp':([8,],[11,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,11 +26,9 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> expression","S'",1,None,None,None),
-  ('expression -> LPAREN explist RPAREN','expression',3,'p_expr','parser.py',26),
-  ('explist -> expression','explist',1,'p_expr_list','parser.py',35),
-  ('explist -> explist expression','explist',2,'p_expr_list','parser.py',36),
-  ('expression -> NUMBER','expression',1,'p_expression_number','parser.py',45),
-  ('expression -> SYMBOL','expression',1,'p_expression_symbol','parser.py',49),
-  ('expression -> LPAREN RPAREN','expression',2,'p_empty_paren','parser.py',54),
+  ("S' -> program","S'",1,None,None,None),
+  ('program -> function','program',1,'p_program','c_parser.py',56),
+  ('function -> INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE','function',7,'p_function','c_parser.py',59),
+  ('exp -> INTEGER','exp',1,'p_exp','c_parser.py',64),
+  ('statement -> RETURN exp SEMICOLON','statement',3,'p_statement','c_parser.py',69),
 ]

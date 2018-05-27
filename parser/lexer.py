@@ -1,27 +1,49 @@
 import ply.lex as lex
 
+'''
+Tokens for minimal C
+
+    Open brace {
+    Close brace }
+    Open parenthesis \(
+    Close parenthesis \)
+    Semicolon ;
+    Int keyword int
+    Return keyword return
+    Identifier [a-zA-Z]\w*
+    Integer
+
+'''
 
 #Define tokens
 tokens = [
-   'NUMBER',
-   'LPAREN',
-   'RPAREN',
-    'SYMBOL'
+    'LBRACE',
+    'RBRACE',
+    'LPAREN',
+    'RPAREN',
+    'SEMICOLON',
+    'IDENTIFIER',
+    'INTEGER'
 ]
 
 
 reserved = {
+    'int' : 'INT',
+    'return' : 'RETURN'
 }
 
 
-tokens += reserved.values()
+tokens += list(reserved.values())
 
 #specify the tokens
 #separators
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
+t_LBRACE = r'{'
+t_RBRACE = r'}'
+t_SEMICOLON = r';'
 
-def t_NUMBER(t):
+def t_INTEGER(t):
     r'[-]?\d+' 
     try:
         t.value = int(t.value) 
@@ -30,14 +52,13 @@ def t_NUMBER(t):
         t.value = 0 
     return t
 
-def t_SYMBOL(t):
-    r'[^0-9()][^()\ \t\n]*'
+def t_IDENTIFIER(t):
+    r'[a-zA-Z]\w*'
+    t.type = reserved.get(t.value,'IDENTIFIER') #check for reserved words!
     return t
 
 #ignored characters
 t_ignore = " \t"
-
-
 
 def t_newline(t):
     r'\n+'
@@ -53,24 +74,10 @@ lexer_instance = lex.lex()
 
 if __name__ == '__main__':
     
-    sample_program = """
-    class Factorial {
-        public static void main(String[] a){
-            System.out.println(new Fac().ComputeFac(10));
-        }
-    }
-
-    class Fac {
-        public int ComputeFac(int num){
-            in num_aux;
-            if (num < 1)
-                num_aux = 1;
-            else
-                num_aux = num * (this.ComputeFac(num-1));
-            return num_aux;
-        }
-    }
-    """
+    sample_program = '''int main() {
+    return 2;
+}
+'''
 
 
     while True:

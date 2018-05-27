@@ -1,36 +1,25 @@
-from lisp_parser import get_parser
+from c_parser import get_parser
 
-test_list = ['1',
-'7',
-'  7',   
-'-123',
-'+',
-'abc',
-'   abc',   
-'abc5',
-'abc-def',
-'(+ 1 2)',
-'()',
-'(nil)',
-'((3 4))',
-'(+ 1 (+ 2 3))',
-'  ( +   1   (+   2 3   )   )',  
-'(* 1 2)',
-'(** 1 2)',
-'(* -3 6)']
-#'(1 2, 3,,,,),,'] #currentyl produces error
+test_string = '''if (a < b) {
+    c = 2;
+    return c;
+} else {
+    c = 3;
+}'''
+
+test_string = '''int main() {
+    return 2;
+}
+'''
 
 def run_tests():
       
       print("Running parser_test.py")
 
       parser_instance = get_parser()
+      result = parser_instance.parse(test_string)
 
-      for item in test_list:
-            result = parser_instance.parse(item)
-
-            assert result is not None
-            assert 'Syntax error' not in result
+      print(result)
 
       print("parser_test.py -- Done!")
       return 0
