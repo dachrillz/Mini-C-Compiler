@@ -1,0 +1,381 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AST_builder	../parser/parser.py	/^def AST_builder(t):$/;"	kind:function	line:32
+CPP_INTEGER	../parser/ply/cpp.py	/^def CPP_INTEGER(t):$/;"	kind:function	line:45
+Grammar	../parser/ply/yacc.py	/^class Grammar(object):$/;"	kind:class	line:1475
+GrammarError	../parser/ply/yacc.py	/^class GrammarError(YaccError):$/;"	kind:class	line:1472
+LALRError	../parser/ply/yacc.py	/^class LALRError(YaccError):$/;"	kind:class	line:2091
+LRGeneratedTable	../parser/ply/yacc.py	/^class LRGeneratedTable(LRTable):$/;"	kind:class	line:2101
+LRItem	../parser/ply/yacc.py	/^class LRItem(object):$/;"	kind:class	line:1429
+LRParser	../parser/ply/yacc.py	/^class LRParser:$/;"	kind:class	line:287
+LRTable	../parser/ply/yacc.py	/^class LRTable(object):$/;"	kind:class	line:1973
+LexError	../parser/ply/lex.py	/^class LexError(Exception):$/;"	kind:class	line:57
+LexToken	../parser/ply/lex.py	/^class LexToken(object):$/;"	kind:class	line:64
+Lexer	../parser/ply/lex.py	/^class Lexer:$/;"	kind:class	line:115
+LexerReflect	../parser/ply/lex.py	/^class LexerReflect(object):$/;"	kind:class	line:557
+MAXINT	../parser/ply/yacc.py	/^MAXINT = sys.maxsize$/;"	kind:variable	line:100
+Macro	../parser/ply/cpp.py	/^class Macro(object):$/;"	kind:class	line:142
+MiniProduction	../parser/ply/yacc.py	/^class MiniProduction(object):$/;"	kind:class	line:1383
+NullLogger	../parser/ply/lex.py	/^class NullLogger(object):$/;"	kind:class	line:93
+NullLogger	../parser/ply/yacc.py	/^class NullLogger(object):$/;"	kind:class	line:126
+ParserReflect	../parser/ply/yacc.py	/^class ParserReflect(object):$/;"	kind:class	line:2938
+PlyLogger	../parser/ply/lex.py	/^class PlyLogger(object):$/;"	kind:class	line:75
+PlyLogger	../parser/ply/yacc.py	/^class PlyLogger(object):$/;"	kind:class	line:108
+Preprocessor	../parser/ply/cpp.py	/^class Preprocessor(object):$/;"	kind:class	line:159
+Production	../parser/ply/yacc.py	/^class Production(object):$/;"	kind:class	line:1311
+STRING_TYPES	../parser/ply/cpp.py	/^    STRING_TYPES = (str, unicode)$/;"	kind:variable	line:16
+STRING_TYPES	../parser/ply/cpp.py	/^    STRING_TYPES = str$/;"	kind:variable	line:18
+StringTypes	../parser/ply/lex.py	/^    StringTypes = (str, bytes)$/;"	kind:variable	line:50
+StringTypes	../parser/ply/lex.py	/^    StringTypes = (types.StringType, types.UnicodeType)$/;"	kind:variable	line:47
+TOKEN	../parser/ply/lex.py	/^def TOKEN(r):$/;"	kind:function	line:1088
+Token	../parser/ply/lex.py	/^Token = TOKEN$/;"	kind:variable	line:1098
+VersionError	../parser/ply/yacc.py	/^class VersionError(YaccError):$/;"	kind:class	line:1970
+YaccError	../parser/ply/yacc.py	/^class YaccError(Exception):$/;"	kind:class	line:134
+YaccProduction	../parser/ply/yacc.py	/^class YaccProduction:$/;"	kind:class	line:232
+YaccSymbol	../parser/ply/yacc.py	/^class YaccSymbol:$/;"	kind:class	line:216
+__all__	../parser/ply/__init__.py	/^__all__ = ['lex','yacc']$/;"	kind:variable	line:5
+__call__	../parser/ply/lex.py	/^    def __call__(self, *args, **kwargs):$/;"	kind:member	line:97
+__call__	../parser/ply/yacc.py	/^    def __call__(self, *args, **kwargs):$/;"	kind:member	line:130
+__getattribute__	../parser/ply/lex.py	/^    def __getattribute__(self, name):$/;"	kind:member	line:94
+__getattribute__	../parser/ply/yacc.py	/^    def __getattribute__(self, name):$/;"	kind:member	line:127
+__getitem__	../parser/ply/yacc.py	/^    def __getitem__(self, index):$/;"	kind:member	line:1355
+__getitem__	../parser/ply/yacc.py	/^    def __getitem__(self, index):$/;"	kind:member	line:1515
+__getitem__	../parser/ply/yacc.py	/^    def __getitem__(self, n):$/;"	kind:member	line:239
+__getslice__	../parser/ply/yacc.py	/^    def __getslice__(self, i, j):$/;"	kind:member	line:250
+__init__	../parser/ply/cpp.py	/^    def __init__(self,lexer=None):$/;"	kind:member	line:160
+__init__	../parser/ply/cpp.py	/^    def __init__(self,name,value,arglist=None,variadic=False):$/;"	kind:member	line:143
+__init__	../parser/ply/lex.py	/^    def __init__(self):$/;"	kind:member	line:116
+__init__	../parser/ply/lex.py	/^    def __init__(self, f):$/;"	kind:member	line:76
+__init__	../parser/ply/lex.py	/^    def __init__(self, ldict, log=None, reflags=0):$/;"	kind:member	line:558
+__init__	../parser/ply/lex.py	/^    def __init__(self, message, s):$/;"	kind:member	line:58
+__init__	../parser/ply/yacc.py	/^    def __init__(self):$/;"	kind:member	line:1974
+__init__	../parser/ply/yacc.py	/^    def __init__(self, f):$/;"	kind:member	line:109
+__init__	../parser/ply/yacc.py	/^    def __init__(self, grammar, method='LALR', log=None):$/;"	kind:member	line:2102
+__init__	../parser/ply/yacc.py	/^    def __init__(self, lrtab, errorf):$/;"	kind:member	line:288
+__init__	../parser/ply/yacc.py	/^    def __init__(self, number, name, prod, precedence=('right', 0), func=None, file='', line=0):$/;"	kind:member	line:1313
+__init__	../parser/ply/yacc.py	/^    def __init__(self, p, n):$/;"	kind:member	line:1430
+__init__	../parser/ply/yacc.py	/^    def __init__(self, pdict, log=None):$/;"	kind:member	line:2939
+__init__	../parser/ply/yacc.py	/^    def __init__(self, s, stack=None):$/;"	kind:member	line:233
+__init__	../parser/ply/yacc.py	/^    def __init__(self, str, name, len, func, file, line):$/;"	kind:member	line:1384
+__init__	../parser/ply/yacc.py	/^    def __init__(self, terminals):$/;"	kind:member	line:1476
+__init__.py	../__init__.py	1;"	kind:file	line:1
+__init__.py	../parser/__init__.py	1;"	kind:file	line:1
+__init__.py	../parser/ply/__init__.py	1;"	kind:file	line:1
+__iter__	../parser/ply/lex.py	/^    def __iter__(self):$/;"	kind:member	line:415
+__len__	../parser/ply/yacc.py	/^    def __len__(self):$/;"	kind:member	line:1349
+__len__	../parser/ply/yacc.py	/^    def __len__(self):$/;"	kind:member	line:1512
+__len__	../parser/ply/yacc.py	/^    def __len__(self):$/;"	kind:member	line:253
+__next__	../parser/ply/lex.py	/^    __next__ = next$/;"	kind:variable	line:424
+__nonzero__	../parser/ply/yacc.py	/^    def __nonzero__(self):$/;"	kind:member	line:1352
+__repr__	../parser/ply/lex.py	/^    def __repr__(self):$/;"	kind:member	line:68
+__repr__	../parser/ply/yacc.py	/^    def __repr__(self):$/;"	kind:member	line:1346
+__repr__	../parser/ply/yacc.py	/^    def __repr__(self):$/;"	kind:member	line:1396
+__repr__	../parser/ply/yacc.py	/^    def __repr__(self):$/;"	kind:member	line:1448
+__repr__	../parser/ply/yacc.py	/^    def __repr__(self):$/;"	kind:member	line:220
+__setitem__	../parser/ply/yacc.py	/^    def __setitem__(self, n, v):$/;"	kind:member	line:247
+__str__	../parser/ply/lex.py	/^    def __str__(self):$/;"	kind:member	line:65
+__str__	../parser/ply/yacc.py	/^    def __str__(self):$/;"	kind:member	line:1343
+__str__	../parser/ply/yacc.py	/^    def __str__(self):$/;"	kind:member	line:1393
+__str__	../parser/ply/yacc.py	/^    def __str__(self):$/;"	kind:member	line:1441
+__str__	../parser/ply/yacc.py	/^    def __str__(self):$/;"	kind:member	line:217
+__tabversion__	../parser/ply/lex.py	/^__tabversion__ = '3.10'$/;"	kind:variable	line:35
+__tabversion__	../parser/ply/yacc.py	/^__tabversion__ = '3.10'$/;"	kind:variable	line:70
+__version__	../parser/ply/__init__.py	/^__version__ = '3.11'$/;"	kind:variable	line:4
+__version__	../parser/ply/lex.py	/^__version__    = '3.11'$/;"	kind:variable	line:34
+__version__	../parser/ply/yacc.py	/^__version__    = '3.11'$/;"	kind:variable	line:69
+_errok	../parser/ply/yacc.py	/^_errok = None$/;"	kind:variable	line:160
+_first	../parser/ply/yacc.py	/^    def _first(self, beta):$/;"	kind:member	line:1803
+_form_master_re	../parser/ply/lex.py	/^def _form_master_re(relist, reflags, ldict, toknames):$/;"	kind:function	line:493
+_funcs_to_names	../parser/ply/lex.py	/^def _funcs_to_names(funclist, namelist):$/;"	kind:function	line:462
+_get_regex	../parser/ply/lex.py	/^def _get_regex(func):$/;"	kind:function	line:439
+_is_identifier	../parser/ply/lex.py	/^_is_identifier = re.compile(r'^[a-zA-Z0-9_]+$')$/;"	kind:variable	line:53
+_is_identifier	../parser/ply/yacc.py	/^_is_identifier = re.compile(r'^[a-zA-Z0-9_-]+$')$/;"	kind:variable	line:1285
+_lr_action	../parser/parsetab.py	/^_lr_action = {}$/;"	kind:variable	line:13
+_lr_action_items	../parser/parsetab.py	/^_lr_action_items = {'NUMBER':([0,2,3,4,5,6,7,8,],[3,3,-4,-5,-2,3,-3,-1,]),'RPAREN':([3,4,5,6,7,8,],[-4,-5,-2,8,-3,-1,]),'$end':([1,3,4,8,],[0,-4,-5,-1,]),'LPAREN':([0,2,3,4,5,6,7,8,],[2,2,-4,-5,-2,2,-3,-1,]),'SYMBOL':([0,2,3,4,5,6,7,8,],[4,4,-4,-5,-2,4,-3,-1,]),}$/;"	kind:variable	line:11
+_lr_goto	../parser/parsetab.py	/^_lr_goto = {}$/;"	kind:variable	line:22
+_lr_goto_items	../parser/parsetab.py	/^_lr_goto_items = {'expression':([0,2,6,],[1,5,7,]),'explist':([2,],[6,]),}$/;"	kind:variable	line:20
+_lr_method	../parser/parsetab.py	/^_lr_method = 'LALR'$/;"	kind:variable	line:7
+_lr_productions	../parser/parsetab.py	/^_lr_productions = [$/;"	kind:variable	line:28
+_lr_signature	../parser/parsetab.py	/^_lr_signature = 'LPAREN NUMBER RPAREN SYMBOLexpression : LPAREN explist RPAREN\\n                   explist : expression\\n                | explist expression\\n    expression : NUMBERexpression : SYMBOL'$/;"	kind:variable	line:9
+_names_to_funcs	../parser/ply/lex.py	/^def _names_to_funcs(namelist, fdict):$/;"	kind:function	line:477
+_restart	../parser/ply/yacc.py	/^_restart = None$/;"	kind:variable	line:162
+_statetoken	../parser/ply/lex.py	/^def _statetoken(s, names):$/;"	kind:function	line:533
+_tabversion	../parser/parsetab.py	/^_tabversion = '3.10'$/;"	kind:variable	line:5
+_token	../parser/ply/yacc.py	/^_token = None$/;"	kind:variable	line:161
+_trigraph_rep	../parser/ply/cpp.py	/^_trigraph_rep = {$/;"	kind:variable	line:111
+add_lalr_lookaheads	../parser/ply/yacc.py	/^    def add_lalr_lookaheads(self, C):$/;"	kind:member	line:2510
+add_lookaheads	../parser/ply/yacc.py	/^    def add_lookaheads(self, lookbacks, followset):$/;"	kind:member	line:2492
+add_path	../parser/ply/cpp.py	/^    def add_path(self,path):$/;"	kind:member	line:269
+add_production	../parser/ply/yacc.py	/^    def add_production(self, prodname, syms, func=None, file='', line=0):$/;"	kind:member	line:1551
+begin	../parser/ply/lex.py	/^    def begin(self, state):$/;"	kind:member	line:263
+bind	../parser/ply/yacc.py	/^    def bind(self, pdict):$/;"	kind:member	line:1375
+bind	../parser/ply/yacc.py	/^    def bind(self, pdict):$/;"	kind:member	line:1400
+bind_callables	../parser/ply/yacc.py	/^    def bind_callables(self, pdict):$/;"	kind:member	line:2028
+build_lritems	../parser/ply/yacc.py	/^    def build_lritems(self):$/;"	kind:member	line:1934
+call_errorfunc	../parser/ply/yacc.py	/^def call_errorfunc(errorfunc, token, parser):$/;"	kind:function	line:187
+clone	../parser/ply/lex.py	/^    def clone(self, object=None):$/;"	kind:member	line:144
+collect_args	../parser/ply/cpp.py	/^    def collect_args(self,tokenlist):$/;"	kind:member	line:342
+collections	../parser/parser.py	/^import collections$/;"	kind:namespace	line:5
+compute_first	../parser/ply/yacc.py	/^    def compute_first(self):$/;"	kind:member	line:1838
+compute_follow	../parser/ply/yacc.py	/^    def compute_follow(self, start=None):$/;"	kind:member	line:1875
+compute_follow_sets	../parser/ply/yacc.py	/^    def compute_follow_sets(self, ntrans, readsets, inclsets):$/;"	kind:member	line:2474
+compute_lookback_includes	../parser/ply/yacc.py	/^    def compute_lookback_includes(self, C, trans, nullable):$/;"	kind:member	line:2372
+compute_nullable_nonterminals	../parser/ply/yacc.py	/^    def compute_nullable_nonterminals(self):$/;"	kind:member	line:2256
+compute_read_sets	../parser/ply/yacc.py	/^    def compute_read_sets(self, C, ntrans, nullable):$/;"	kind:member	line:2452
+copy	../parser/ply/cpp.py	/^import copy$/;"	kind:namespace	line:89
+copy	../parser/ply/lex.py	/^import copy$/;"	kind:namespace	line:40
+cpp.py	../parser/ply/cpp.py	1;"	kind:file	line:1
+critical	../parser/ply/lex.py	/^    def critical(self, msg, *args, **kwargs):$/;"	kind:member	line:79
+critical	../parser/ply/yacc.py	/^    critical = debug$/;"	kind:variable	line:123
+ctokens.py	../parser/ply/ctokens.py	1;"	kind:file	line:1
+current_state	../parser/ply/lex.py	/^    def current_state(self):$/;"	kind:member	line:289
+debug	../parser/ply/lex.py	/^    debug = critical$/;"	kind:variable	line:89
+debug	../parser/ply/yacc.py	/^    def debug(self, msg, *args, **kwargs):$/;"	kind:member	line:112
+debug_file	../parser/ply/yacc.py	/^debug_file  = 'parser.out'     # Default name of the debugging file$/;"	kind:variable	line:81
+default_lr	../parser/ply/yacc.py	/^default_lr  = 'LALR'           # Default LR table generation method$/;"	kind:variable	line:83
+define	../parser/ply/cpp.py	/^    def define(self,tokens):$/;"	kind:member	line:800
+digraph	../parser/ply/yacc.py	/^def digraph(X, R, FP):$/;"	kind:function	line:2057
+disable_defaulted_states	../parser/ply/yacc.py	/^    def disable_defaulted_states(self):$/;"	kind:member	line:322
+dr_relation	../parser/ply/yacc.py	/^    def dr_relation(self, C, trans, nullable):$/;"	kind:member	line:2305
+errok	../parser/ply/yacc.py	/^    def errok(self):$/;"	kind:member	line:296
+errok	../parser/ply/yacc.py	/^def errok():$/;"	kind:function	line:174
+error	../parser/ply/cpp.py	/^    def error(self,file,line,msg):$/;"	kind:member	line:197
+error	../parser/ply/lex.py	/^    def error(self, msg, *args, **kwargs):$/;"	kind:member	line:85
+error	../parser/ply/yacc.py	/^    def error(self):$/;"	kind:member	line:278
+error	../parser/ply/yacc.py	/^    def error(self, msg, *args, **kwargs):$/;"	kind:member	line:120
+error_count	../parser/ply/yacc.py	/^error_count = 3                # Number of symbols that must be shifted to leave recovery mode$/;"	kind:variable	line:85
+evalexpr	../parser/ply/cpp.py	/^    def evalexpr(self,tokens):$/;"	kind:member	line:561
+expand_macros	../parser/ply/cpp.py	/^    def expand_macros(self,tokens,expanded=None):$/;"	kind:member	line:489
+f	../parser/ply/cpp.py	/^    f = open(sys.argv[1])$/;"	kind:variable	line:906
+filter_section	../parser/ply/ygen.py	/^def filter_section(lines, tag):$/;"	kind:function	line:28
+find_nonterminal_transitions	../parser/ply/yacc.py	/^    def find_nonterminal_transitions(self, C):$/;"	kind:member	line:2285
+find_unreachable	../parser/ply/yacc.py	/^    def find_unreachable(self):$/;"	kind:member	line:1651
+flatten	../parser/parser.py	/^def flatten(l):$/;"	kind:function	line:25
+format_result	../parser/ply/yacc.py	/^def format_result(r):$/;"	kind:function	line:138
+format_stack_entry	../parser/ply/yacc.py	/^def format_stack_entry(r):$/;"	kind:function	line:148
+generators	../parser/ply/cpp.py	/^from __future__ import generators$/;"	kind:namespace	line:10
+get_all	../parser/ply/lex.py	/^    def get_all(self):$/;"	kind:member	line:569
+get_all	../parser/ply/yacc.py	/^    def get_all(self):$/;"	kind:member	line:2954
+get_caller_module_dict	../parser/ply/lex.py	/^def get_caller_module_dict(levels):$/;"	kind:function	line:449
+get_caller_module_dict	../parser/ply/yacc.py	/^def get_caller_module_dict(levels):$/;"	kind:function	line:2885
+get_error_func	../parser/ply/yacc.py	/^    def get_error_func(self):$/;"	kind:member	line:3034
+get_literals	../parser/ply/lex.py	/^    def get_literals(self):$/;"	kind:member	line:614
+get_pfunctions	../parser/ply/yacc.py	/^    def get_pfunctions(self):$/;"	kind:member	line:3129
+get_precedence	../parser/ply/yacc.py	/^    def get_precedence(self):$/;"	kind:member	line:3094
+get_rules	../parser/ply/lex.py	/^    def get_rules(self):$/;"	kind:member	line:662
+get_source_range	../parser/ply/ygen.py	/^def get_source_range(lines, tag):$/;"	kind:function	line:13
+get_start	../parser/ply/yacc.py	/^    def get_start(self):$/;"	kind:member	line:3024
+get_states	../parser/ply/lex.py	/^    def get_states(self):$/;"	kind:member	line:631
+get_tokens	../parser/ply/lex.py	/^    def get_tokens(self):$/;"	kind:member	line:583
+get_tokens	../parser/ply/yacc.py	/^    def get_tokens(self):$/;"	kind:member	line:3060
+group_lines	../parser/ply/cpp.py	/^    def group_lines(self,input):$/;"	kind:member	line:281
+include	../parser/ply/cpp.py	/^    def include(self,tokens):$/;"	kind:member	line:751
+infinite_cycles	../parser/ply/yacc.py	/^    def infinite_cycles(self):$/;"	kind:member	line:1674
+info	../parser/ply/lex.py	/^    info = critical$/;"	kind:variable	line:88
+info	../parser/ply/yacc.py	/^    info = debug$/;"	kind:variable	line:115
+input	../parser/ply/cpp.py	/^    input = f.read()$/;"	kind:variable	line:907
+input	../parser/ply/lex.py	/^    def input(self, s):$/;"	kind:member	line:251
+inspect	../parser/ply/lex.py	/^import inspect$/;"	kind:namespace	line:42
+inspect	../parser/ply/yacc.py	/^import inspect$/;"	kind:namespace	line:66
+lex	../parser/lexer.py	/^import ply.lex as lex$/;"	kind:namespace	line:1
+lex	../parser/ply/cpp.py	/^    import ply.lex as lex$/;"	kind:namespace	line:901
+lex	../parser/ply/lex.py	/^def lex(module=None, object=None, debug=False, optimize=False, lextab='lextab',$/;"	kind:function	line:862
+lex	../parser/ply/yacc.py	/^            from . import lex$/;"	kind:namespace	line:1017
+lex	../parser/ply/yacc.py	/^            from . import lex$/;"	kind:namespace	line:367
+lex	../parser/ply/yacc.py	/^            from . import lex$/;"	kind:namespace	line:711
+lex.py	../parser/ply/lex.py	1;"	kind:file	line:1
+lexer	../parser/ply/cpp.py	/^    lexer = lex.lex()$/;"	kind:variable	line:902
+lexer.py	../parser/lexer.py	1;"	kind:file	line:1
+lexer_instance	../parser/lexer.py	/^lexer_instance = lex.lex()$/;"	kind:variable	line:51
+lexpos	../parser/ply/yacc.py	/^    def lexpos(self, n):$/;"	kind:member	line:267
+lexprobe	../parser/ply/cpp.py	/^    def lexprobe(self):$/;"	kind:member	line:209
+lexspan	../parser/ply/yacc.py	/^    def lexspan(self, n):$/;"	kind:member	line:273
+lineno	../parser/ply/yacc.py	/^    def lineno(self, n):$/;"	kind:member	line:256
+linespan	../parser/ply/yacc.py	/^    def linespan(self, n):$/;"	kind:member	line:262
+lr0_closure	../parser/ply/yacc.py	/^    def lr0_closure(self, I):$/;"	kind:member	line:2139
+lr0_goto	../parser/ply/yacc.py	/^    def lr0_goto(self, I, x):$/;"	kind:member	line:2165
+lr0_items	../parser/ply/yacc.py	/^    def lr0_items(self):$/;"	kind:member	line:2200
+lr_item	../parser/ply/yacc.py	/^    def lr_item(self, n):$/;"	kind:member	line:1359
+lr_parse_table	../parser/ply/yacc.py	/^    def lr_parse_table(self):$/;"	kind:member	line:2534
+macro_expand_args	../parser/ply/cpp.py	/^    def macro_expand_args(self,macro,args):$/;"	kind:member	line:439
+macro_prescan	../parser/ply/cpp.py	/^    def macro_prescan(self,macro):$/;"	kind:member	line:395
+main	../parser/ply/ygen.py	/^def main():$/;"	kind:function	line:39
+mark_reachable_from	../parser/ply/yacc.py	/^        def mark_reachable_from(s):$/;"	kind:function	line:1654
+names	../parser/parser.py	/^names = {}$/;"	kind:variable	line:23
+next	../parser/ply/lex.py	/^    def next(self):$/;"	kind:member	line:418
+operator	../parser/parser.py	/^import operator$/;"	kind:namespace	line:3
+os	../parser/ply/cpp.py	/^import os.path$/;"	kind:namespace	line:91
+os	../parser/ply/lex.py	/^import os$/;"	kind:namespace	line:41
+os	../parser/ply/yacc.py	/^import os.path$/;"	kind:namespace	line:65
+os	../parser/ply/ygen.py	/^import os.path$/;"	kind:namespace	line:10
+p	../parser/ply/cpp.py	/^    p = Preprocessor(lexer)$/;"	kind:variable	line:909
+p_error	../parser/parser.py	/^def p_error(t):$/;"	kind:function	line:93
+p_expr	../parser/parser.py	/^def p_expr(t): #expression as list!$/;"	kind:function	line:66
+p_expr_list	../parser/parser.py	/^def p_expr_list(t): #This is the renowned S-expression$/;"	kind:function	line:75
+p_expression_number	../parser/parser.py	/^def p_expression_number(t):$/;"	kind:function	line:85
+p_expression_symbol	../parser/parser.py	/^def p_expression_symbol(t):$/;"	kind:function	line:89
+parse	../parser/ply/cpp.py	/^    def parse(self,input,source=None,ignore={}):$/;"	kind:member	line:882
+parse	../parser/ply/yacc.py	/^    def parse(self, input=None, lexer=None, debug=False, tracking=False, tokenfunc=None):$/;"	kind:member	line:325
+parse_grammar	../parser/ply/yacc.py	/^def parse_grammar(doc, file, line):$/;"	kind:function	line:2897
+parsedebug	../parser/ply/yacc.py	/^    def parsedebug(self, input=None, lexer=None, debug=False, tracking=False, tokenfunc=None):$/;"	kind:member	line:350
+parsegen	../parser/ply/cpp.py	/^    def parsegen(self,input,source=None):$/;"	kind:member	line:620
+parseopt	../parser/ply/yacc.py	/^    def parseopt(self, input=None, lexer=None, debug=False, tracking=False, tokenfunc=None):$/;"	kind:member	line:697
+parseopt_notrack	../parser/ply/yacc.py	/^    def parseopt_notrack(self, input=None, lexer=None, debug=False, tracking=False, tokenfunc=None):$/;"	kind:member	line:1003
+parser	../parser/parser_test.py	/^import parser$/;"	kind:namespace	line:50
+parser.py	../parser/parser.py	1;"	kind:file	line:1
+parser_instance	../parser/parser.py	/^parser_instance = yacc.yacc()$/;"	kind:variable	line:101
+parser_test.py	../parser/parser_test.py	1;"	kind:file	line:1
+parsetab.py	../parser/parsetab.py	1;"	kind:file	line:1
+path	../parser/ply/cpp.py	/^import os.path$/;"	kind:namespace	line:91
+path	../parser/ply/yacc.py	/^import os.path$/;"	kind:namespace	line:65
+path	../parser/ply/ygen.py	/^import os.path$/;"	kind:namespace	line:10
+pickle	../parser/ply/yacc.py	/^            import cPickle as pickle$/;"	kind:namespace	line:2002
+pickle	../parser/ply/yacc.py	/^            import cPickle as pickle$/;"	kind:namespace	line:2852
+pickle	../parser/ply/yacc.py	/^            import pickle$/;"	kind:namespace	line:2004
+pickle	../parser/ply/yacc.py	/^            import pickle$/;"	kind:namespace	line:2854
+pickle_protocol	../parser/ply/yacc.py	/^pickle_protocol = 0            # Protocol to use when writing pickle files$/;"	kind:variable	line:92
+pickle_table	../parser/ply/yacc.py	/^    def pickle_table(self, filename, signature=''):$/;"	kind:member	line:2850
+ply	../parser/lexer.py	/^import ply.lex as lex$/;"	kind:namespace	line:1
+ply	../parser/parser.py	/^import ply.yacc as yacc$/;"	kind:namespace	line:2
+ply	../parser/ply/cpp.py	/^    import ply.lex as lex$/;"	kind:namespace	line:901
+pop_state	../parser/ply/lex.py	/^    def pop_state(self):$/;"	kind:member	line:283
+push_state	../parser/ply/lex.py	/^    def push_state(self, state):$/;"	kind:member	line:276
+python	../parser/parser.py	/^from functools import reduce #python 3$/;"	kind:namespace	line:4
+re	../parser/ply/cpp.py	/^import re$/;"	kind:namespace	line:88
+re	../parser/ply/lex.py	/^import re$/;"	kind:namespace	line:37
+re	../parser/ply/yacc.py	/^import re$/;"	kind:namespace	line:62
+read_pickle	../parser/ply/yacc.py	/^    def read_pickle(self, filename):$/;"	kind:member	line:2000
+read_table	../parser/ply/yacc.py	/^    def read_table(self, module):$/;"	kind:member	line:1980
+reads_relation	../parser/ply/yacc.py	/^    def reads_relation(self, C, trans, empty):$/;"	kind:member	line:2329
+readtab	../parser/ply/lex.py	/^    def readtab(self, tabfile, fdict):$/;"	kind:member	line:211
+reduce	../parser/parser.py	/^from functools import reduce #python 3$/;"	kind:namespace	line:4
+reduced	../parser/ply/yacc.py	/^    reduced = 0$/;"	kind:variable	line:1312
+reserved	../parser/lexer.py	/^reserved = {$/;"	kind:variable	line:13
+restart	../parser/ply/yacc.py	/^    def restart(self):$/;"	kind:member	line:299
+restart	../parser/ply/yacc.py	/^def restart():$/;"	kind:function	line:178
+resultlimit	../parser/ply/yacc.py	/^resultlimit = 40               # Size limit of results when running in debug mode.$/;"	kind:variable	line:90
+rightmost_terminal	../parser/ply/yacc.py	/^def rightmost_terminal(symbols, terminals):$/;"	kind:function	line:1456
+runmain	../parser/ply/lex.py	/^def runmain(lexer=None, data=None):$/;"	kind:function	line:1054
+s	../parser/ply/lex.py	/^                    exec('import %s' % pkgname)$/;"	kind:namespace	line:1036
+s	../parser/ply/lex.py	/^            exec('import %s' % tabfile)$/;"	kind:namespace	line:215
+s	../parser/ply/yacc.py	/^                exec('import %s' % pkgname)$/;"	kind:namespace	line:3260
+s	../parser/ply/yacc.py	/^            exec('import %s' % module)$/;"	kind:namespace	line:1984
+set_defaulted_states	../parser/ply/yacc.py	/^    def set_defaulted_states(self):$/;"	kind:member	line:315
+set_lexpos	../parser/ply/yacc.py	/^    def set_lexpos(self, n, lexpos):$/;"	kind:member	line:270
+set_lineno	../parser/ply/yacc.py	/^    def set_lineno(self, n, lineno):$/;"	kind:member	line:259
+set_precedence	../parser/ply/yacc.py	/^    def set_precedence(self, term, assoc, level):$/;"	kind:member	line:1526
+set_regex	../parser/ply/lex.py	/^    def set_regex(f):$/;"	kind:function	line:1089
+set_start	../parser/ply/yacc.py	/^    def set_start(self, start=None):$/;"	kind:member	line:1635
+shutil	../parser/ply/ygen.py	/^import shutil$/;"	kind:namespace	line:11
+signature	../parser/ply/yacc.py	/^    def signature(self):$/;"	kind:member	line:2972
+skip	../parser/ply/lex.py	/^    def skip(self, n):$/;"	kind:member	line:295
+string_types	../parser/ply/yacc.py	/^    string_types = basestring$/;"	kind:variable	line:96
+string_types	../parser/ply/yacc.py	/^    string_types = str$/;"	kind:variable	line:98
+sys	../parser/ply/cpp.py	/^    import sys$/;"	kind:namespace	line:905
+sys	../parser/ply/cpp.py	/^import sys$/;"	kind:namespace	line:12
+sys	../parser/ply/lex.py	/^import sys$/;"	kind:namespace	line:38
+sys	../parser/ply/yacc.py	/^import sys$/;"	kind:namespace	line:64
+t_AND	../parser/ply/ctokens.py	/^t_AND              = r'&'$/;"	kind:variable	line:50
+t_ARROW	../parser/ply/ctokens.py	/^t_ARROW            = r'->'$/;"	kind:variable	line:84
+t_CHARACTER	../parser/ply/ctokens.py	/^t_CHARACTER = r'(L)?\\'([^\\\\\\n]|(\\\\.))*?\\''$/;"	kind:variable	line:115
+t_COLON	../parser/ply/ctokens.py	/^t_COLON            = r':'$/;"	kind:variable	line:99
+t_COMMA	../parser/ply/ctokens.py	/^t_COMMA            = r','$/;"	kind:variable	line:96
+t_COMMENT	../parser/ply/ctokens.py	/^def t_COMMENT(t):$/;"	kind:function	line:118
+t_CPPCOMMENT	../parser/ply/ctokens.py	/^def t_CPPCOMMENT(t):$/;"	kind:function	line:124
+t_CPP_CHAR	../parser/ply/cpp.py	/^def t_CPP_CHAR(t):$/;"	kind:function	line:61
+t_CPP_COMMENT1	../parser/ply/cpp.py	/^def t_CPP_COMMENT1(t):$/;"	kind:function	line:67
+t_CPP_COMMENT2	../parser/ply/cpp.py	/^def t_CPP_COMMENT2(t):$/;"	kind:function	line:76
+t_CPP_DPOUND	../parser/ply/cpp.py	/^t_CPP_DPOUND = r'\\#\\#'$/;"	kind:variable	line:39
+t_CPP_FLOAT	../parser/ply/cpp.py	/^t_CPP_FLOAT = r'((\\d+)(\\.\\d+)(e(\\+|-)?(\\d+))? | (\\d+)e(\\+|-)?(\\d+))([lL]|[fF])?'$/;"	kind:variable	line:52
+t_CPP_ID	../parser/ply/cpp.py	/^t_CPP_ID = r'[A-Za-z_][\\w_]*'$/;"	kind:variable	line:42
+t_CPP_INTEGER	../parser/ply/cpp.py	/^t_CPP_INTEGER = CPP_INTEGER$/;"	kind:variable	line:49
+t_CPP_POUND	../parser/ply/cpp.py	/^t_CPP_POUND = r'\\#'$/;"	kind:variable	line:38
+t_CPP_STRING	../parser/ply/cpp.py	/^def t_CPP_STRING(t):$/;"	kind:function	line:55
+t_CPP_WS	../parser/ply/cpp.py	/^def t_CPP_WS(t):$/;"	kind:function	line:33
+t_DECREMENT	../parser/ply/ctokens.py	/^t_DECREMENT        = r'--'$/;"	kind:variable	line:81
+t_DIVIDE	../parser/ply/ctokens.py	/^t_DIVIDE           = r'\/'$/;"	kind:variable	line:47
+t_ELLIPSIS	../parser/ply/ctokens.py	/^t_ELLIPSIS         = r'\\.\\.\\.'$/;"	kind:variable	line:100
+t_FLOAT	../parser/ply/ctokens.py	/^t_FLOAT = r'((\\d+)(\\.\\d+)(e(\\+|-)?(\\d+))? | (\\d+)e(\\+|-)?(\\d+))([lL]|[fF])?'$/;"	kind:variable	line:109
+t_GT	../parser/ply/ctokens.py	/^t_GT               = r'>'$/;"	kind:variable	line:59
+t_ID	../parser/ply/ctokens.py	/^t_ID = r'[A-Za-z_][A-Za-z0-9_]*'$/;"	kind:variable	line:103
+t_INCREMENT	../parser/ply/ctokens.py	/^t_INCREMENT        = r'\\+\\+'$/;"	kind:variable	line:80
+t_INTEGER	../parser/ply/ctokens.py	/^t_INTEGER = r'\\d+([uU]|[lL]|[uU][lL]|[lL][uU])?'$/;"	kind:variable	line:106
+t_LAND	../parser/ply/ctokens.py	/^t_LAND             = r'&&'$/;"	kind:variable	line:56
+t_LBRACE	../parser/ply/ctokens.py	/^t_LBRACE           = r'\\{'$/;"	kind:variable	line:94
+t_LBRACKET	../parser/ply/ctokens.py	/^t_LBRACKET         = r'\\['$/;"	kind:variable	line:92
+t_LNOT	../parser/ply/ctokens.py	/^t_LNOT             = r'!'$/;"	kind:variable	line:57
+t_LOR	../parser/ply/ctokens.py	/^t_LOR              = r'\\|\\|'$/;"	kind:variable	line:55
+t_LPAREN	../parser/lexer.py	/^t_LPAREN = r'\\('$/;"	kind:variable	line:21
+t_LPAREN	../parser/ply/ctokens.py	/^t_LPAREN           = r'\\('$/;"	kind:variable	line:90
+t_LSHIFT	../parser/ply/ctokens.py	/^t_LSHIFT           = r'<<'$/;"	kind:variable	line:53
+t_LT	../parser/ply/ctokens.py	/^t_LT               = r'<'$/;"	kind:variable	line:58
+t_MINUS	../parser/ply/ctokens.py	/^t_MINUS            = r'-'$/;"	kind:variable	line:45
+t_MODULO	../parser/ply/ctokens.py	/^t_MODULO           = r'%'$/;"	kind:variable	line:48
+t_NOT	../parser/ply/ctokens.py	/^t_NOT              = r'~'$/;"	kind:variable	line:51
+t_NUMBER	../parser/lexer.py	/^def t_NUMBER(t):$/;"	kind:function	line:28
+t_OR	../parser/ply/ctokens.py	/^t_OR               = r'\\|'$/;"	kind:variable	line:49
+t_PERIOD	../parser/ply/ctokens.py	/^t_PERIOD           = r'\\.'$/;"	kind:variable	line:97
+t_PLUS	../parser/ply/ctokens.py	/^t_PLUS             = r'\\+'$/;"	kind:variable	line:44
+t_RBRACE	../parser/ply/ctokens.py	/^t_RBRACE           = r'\\}'$/;"	kind:variable	line:95
+t_RBRACKET	../parser/ply/ctokens.py	/^t_RBRACKET         = r'\\]'$/;"	kind:variable	line:93
+t_RPAREN	../parser/lexer.py	/^t_RPAREN = r'\\)'$/;"	kind:variable	line:22
+t_RPAREN	../parser/ply/ctokens.py	/^t_RPAREN           = r'\\)'$/;"	kind:variable	line:91
+t_RSHIFT	../parser/ply/ctokens.py	/^t_RSHIFT           = r'>>'$/;"	kind:variable	line:54
+t_SEMI	../parser/ply/ctokens.py	/^t_SEMI             = r';'$/;"	kind:variable	line:98
+t_STRING	../parser/ply/ctokens.py	/^t_STRING = r'\\"([^\\\\\\n]|(\\\\.))*?\\"'$/;"	kind:variable	line:112
+t_SYMBOL	../parser/lexer.py	/^def t_SYMBOL(t):$/;"	kind:function	line:24
+t_TERNARY	../parser/ply/ctokens.py	/^t_TERNARY          = r'\\?'$/;"	kind:variable	line:87
+t_TIMES	../parser/ply/ctokens.py	/^t_TIMES            = r'\\*'$/;"	kind:variable	line:46
+t_XOR	../parser/ply/ctokens.py	/^t_XOR              = r'\\^'$/;"	kind:variable	line:52
+t_error	../parser/lexer.py	/^def t_error(t):$/;"	kind:function	line:46
+t_error	../parser/ply/cpp.py	/^def t_error(t):$/;"	kind:function	line:82
+t_ignore	../parser/lexer.py	/^t_ignore = " \\t"$/;"	kind:variable	line:38
+t_newline	../parser/lexer.py	/^def t_newline(t):$/;"	kind:function	line:42
+tab_module	../parser/ply/yacc.py	/^tab_module  = 'parsetab'       # Default name of the table module$/;"	kind:variable	line:82
+time	../parser/ply/cpp.py	/^import time$/;"	kind:namespace	line:90
+token	../parser/ply/cpp.py	/^    def token(self):$/;"	kind:member	line:891
+token	../parser/ply/lex.py	/^    def token(self):$/;"	kind:member	line:305
+token	../parser/ply/yacc.py	/^def token():$/;"	kind:function	line:182
+tokenize	../parser/ply/cpp.py	/^    def tokenize(self,text):$/;"	kind:member	line:182
+tokens	../parser/lexer.py	/^tokens = [$/;"	kind:variable	line:5
+tokens	../parser/parser.py	/^from lexer import tokens$/;"	kind:namespace	line:7
+tokens	../parser/ply/cpp.py	/^tokens = ($/;"	kind:variable	line:26
+tokens	../parser/ply/ctokens.py	/^tokens = [$/;"	kind:variable	line:10
+tokenstrip	../parser/ply/cpp.py	/^    def tokenstrip(self,tokens):$/;"	kind:member	line:314
+traverse	../parser/ply/yacc.py	/^def traverse(x, N, stack, F, X, R, FP):$/;"	kind:function	line:2068
+trigraph	../parser/ply/cpp.py	/^def trigraph(input):$/;"	kind:function	line:123
+types	../parser/ply/lex.py	/^import types$/;"	kind:namespace	line:39
+types	../parser/ply/yacc.py	/^import types$/;"	kind:namespace	line:63
+undef	../parser/ply/cpp.py	/^    def undef(self,tokens):$/;"	kind:member	line:870
+undefined_symbols	../parser/ply/yacc.py	/^    def undefined_symbols(self):$/;"	kind:member	line:1738
+unused_precedence	../parser/ply/yacc.py	/^    def unused_precedence(self):$/;"	kind:member	line:1787
+unused_rules	../parser/ply/yacc.py	/^    def unused_rules(self):$/;"	kind:member	line:1770
+unused_terminals	../parser/ply/yacc.py	/^    def unused_terminals(self):$/;"	kind:member	line:1755
+validate_all	../parser/ply/lex.py	/^    def validate_all(self):$/;"	kind:member	line:576
+validate_all	../parser/ply/yacc.py	/^    def validate_all(self):$/;"	kind:member	line:2962
+validate_error_func	../parser/ply/yacc.py	/^    def validate_error_func(self):$/;"	kind:member	line:3038
+validate_literals	../parser/ply/lex.py	/^    def validate_literals(self):$/;"	kind:member	line:620
+validate_module	../parser/ply/lex.py	/^    def validate_module(self, module):$/;"	kind:member	line:831
+validate_modules	../parser/ply/yacc.py	/^    def validate_modules(self):$/;"	kind:member	line:2999
+validate_pfunctions	../parser/ply/yacc.py	/^    def validate_pfunctions(self):$/;"	kind:member	line:3150
+validate_precedence	../parser/ply/yacc.py	/^    def validate_precedence(self):$/;"	kind:member	line:3098
+validate_rules	../parser/ply/lex.py	/^    def validate_rules(self):$/;"	kind:member	line:728
+validate_start	../parser/ply/yacc.py	/^    def validate_start(self):$/;"	kind:member	line:3028
+validate_tokens	../parser/ply/lex.py	/^    def validate_tokens(self):$/;"	kind:member	line:603
+validate_tokens	../parser/ply/yacc.py	/^    def validate_tokens(self):$/;"	kind:member	line:3080
+warning	../parser/ply/lex.py	/^    def warning(self, msg, *args, **kwargs):$/;"	kind:member	line:82
+warning	../parser/ply/yacc.py	/^    def warning(self, msg, *args, **kwargs):$/;"	kind:member	line:117
+warnings	../parser/ply/yacc.py	/^import warnings$/;"	kind:namespace	line:67
+write_table	../parser/ply/yacc.py	/^    def write_table(self, tabmodule, outputdir='', signature=''):$/;"	kind:member	line:2727
+writetab	../parser/ply/lex.py	/^    def writetab(self, lextab, outputdir=''):$/;"	kind:member	line:174
+xrange	../parser/ply/cpp.py	/^    xrange = range$/;"	kind:variable	line:19
+yacc	../parser/parser.py	/^import ply.yacc as yacc$/;"	kind:namespace	line:2
+yacc	../parser/ply/yacc.py	/^def yacc(method='LALR', debug=yaccdebug, module=None, tabmodule=tab_module, start=None,$/;"	kind:function	line:3216
+yacc.py	../parser/ply/yacc.py	1;"	kind:file	line:1
+yaccdebug	../parser/ply/yacc.py	/^yaccdebug   = True             # Debugging mode.  If set, yacc generates a$/;"	kind:variable	line:78
+yaccdevel	../parser/ply/yacc.py	/^yaccdevel   = False            # Set to True if developing yacc.  This turns off optimized$/;"	kind:variable	line:87
+ygen.py	../parser/ply/ygen.py	1;"	kind:file	line:1
