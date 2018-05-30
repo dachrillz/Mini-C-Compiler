@@ -104,6 +104,8 @@ if __name__ == '__main__':
 
     result = parser_instance.parse(file_to_compile)
 
+    result.pprint(result)
+
     AST_i = AST_visitor()
 
     AST_i.generate_code(result)
