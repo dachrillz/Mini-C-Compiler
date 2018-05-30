@@ -1,18 +1,21 @@
 import ply.lex as lex
-
 '''
-Tokens for minimal C
+This file handles all the lexing of the compiler. That is, it takes a 
+string that is a legal C program, and chops it up into atomic pieces 
+that the parser understands. 
 
-    Open brace {
-    Close brace }
-    Open parenthesis \(
-    Close parenthesis \)
-    Semicolon ;
-    Int keyword int
-    Return keyword return
-    Identifier [a-zA-Z]\w*
-    Integer
 
+Lexemes for minimal C
+
+Open brace {
+Close brace }
+Open parenthesis \(
+Close parenthesis \)
+Semicolon ;
+Int keyword int
+Return keyword return
+Identifier [a-zA-Z]\w*
+Integer
 '''
 
 #Define tokens
