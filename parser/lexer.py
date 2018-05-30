@@ -26,7 +26,10 @@ tokens = [
     'RPAREN',
     'SEMICOLON',
     'IDENTIFIER',
-    'INTEGER'
+    'INTEGER',
+    'NEGATION',
+    'BITWISE_COMPLEMENT',
+    'LOGICAL_NEGATION'
 ]
 
 
@@ -46,8 +49,12 @@ t_LBRACE = r'{'
 t_RBRACE = r'}'
 t_SEMICOLON = r';'
 
+t_NEGATION = r'\-'
+t_BITWISE_COMPLEMENT = r'\~'
+t_LOGICAL_NEGATION = r'\!'
+
 def t_INTEGER(t):
-    r'[-]?\d+' 
+    r'\d+' 
     try:
         t.value = int(t.value) 
     except ValueError:

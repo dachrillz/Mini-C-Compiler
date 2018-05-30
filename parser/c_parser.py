@@ -8,9 +8,12 @@ Minimal Grammar of the C-language
 <program> ::= <function>
 <function> ::= "int" <id> "(" ")" "{" <statement> "}"
 <statement> ::= "return" <exp> ";"
-<exp> ::= <int>
+<exp> ::= <unary_exp> <exp> | <int>
 '''
 
+precedence = (
+    ('right', 'UNARY_OP'),            # Unary minus operator
+)
 
 '''
 Python implementation of the grammar
@@ -23,10 +26,19 @@ def p_function(t):
     '''function : INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE'''
     t[0] = function_node(t[1], t[2], t[6])
 
-def p_exp(t):
-    '''exp : INTEGER'''
-    t[0] = constant_node(t[1])
 
+def p_unary_op(t):
+    '''unary_op : NEGATION exp 
+                | BITWISE_COMPLEMENT exp
+                | LOGICAL_NEGATION exp'''
+
+    t[0] = unary_node(t[1], constant_node(t[2]))
+
+def p_exp(t):
+    '''exp : unary_op %prec UNARY_OP
+           | INTEGER'''
+
+    t[0] = t[1]
 
 def p_statement(t):
     '''statement : RETURN exp SEMICOLON
@@ -39,7 +51,7 @@ def p_error(t):
         print("Syntax error at '%s'" % t)
     else:
         print("Syntax error at '%s'" % t.value)
-        yacc.errok()
+    parser_instance.errok()
 
 
 def get_parser():
@@ -50,11 +62,22 @@ if __name__ == '__main__':
     '''
     For manual testing
     '''
-    import sys
-    file_to_compile = sys.stdin.readlines()
-
-    file_to_compile = ''.join(file_to_compile)
-
     parser_instance = yacc.yacc()
+    s = ''
+    while True:
+        try:
+            s = input('REPL > ')
+        except EOFError:
+            break
 
-    result = parser_instance.parse(file_to_compile)
+        if s == 'sample':
+            s = '''int main() {
+    return !2;
+}
+'''
+
+        result = parser_instance.parse(s)
+
+        result.pprint(result)
+
+        print('done with REPL loop')

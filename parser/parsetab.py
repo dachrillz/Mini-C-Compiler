@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'IDENTIFIER INT INTEGER LBRACE LPAREN RBRACE RETURN RPAREN SEMICOLONprogram : functionfunction : INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACEexp : INTEGERstatement : RETURN exp SEMICOLON\n                  '
+_lr_signature = 'rightUNARY_OPBITWISE_COMPLEMENT IDENTIFIER INT INTEGER LBRACE LOGICAL_NEGATION LPAREN NEGATION RBRACE RETURN RPAREN SEMICOLONprogram : functionfunction : INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACEunary_op : NEGATION exp \n                | BITWISE_COMPLEMENT exp\n                | LOGICAL_NEGATION expexp : unary_op %prec UNARY_OP\n           | INTEGERstatement : RETURN exp SEMICOLON\n                  '
     
-_lr_action_items = {'SEMICOLON':([10,11,],[-3,13,]),'RPAREN':([5,],[6,]),'LPAREN':([4,],[5,]),'$end':([1,3,12,],[0,-1,-2,]),'INTEGER':([8,],[10,]),'INT':([0,],[2,]),'RBRACE':([9,13,],[12,-4,]),'LBRACE':([6,],[7,]),'RETURN':([7,],[8,]),'IDENTIFIER':([2,],[4,]),}
+_lr_action_items = {'LOGICAL_NEGATION':([9,11,13,15,],[11,11,11,11,]),'INTEGER':([9,11,13,15,],[12,12,12,12,]),'RPAREN':([5,],[6,]),'BITWISE_COMPLEMENT':([9,11,13,15,],[13,13,13,13,]),'SEMICOLON':([12,14,16,17,18,19,],[-7,-6,20,-5,-4,-3,]),'IDENTIFIER':([3,],[4,]),'LBRACE':([6,],[7,]),'LPAREN':([4,],[5,]),'RETURN':([7,],[9,]),'RBRACE':([8,20,],[10,-8,]),'INT':([0,],[3,]),'NEGATION':([9,11,13,15,],[15,15,15,15,]),'$end':([1,2,10,],[-1,0,-2,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'statement':([7,],[9,]),'function':([0,],[3,]),'program':([0,],[1,]),'exp':([8,],[11,]),}
+_lr_goto_items = {'statement':([7,],[8,]),'unary_op':([9,11,13,15,],[14,14,14,14,]),'function':([0,],[1,]),'exp':([9,11,13,15,],[16,17,18,19,]),'program':([0,],[2,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,8 +27,12 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> program","S'",1,None,None,None),
-  ('program -> function','program',1,'p_program','c_parser.py',56),
-  ('function -> INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE','function',7,'p_function','c_parser.py',59),
-  ('exp -> INTEGER','exp',1,'p_exp','c_parser.py',64),
-  ('statement -> RETURN exp SEMICOLON','statement',3,'p_statement','c_parser.py',69),
+  ('program -> function','program',1,'p_program','c_parser.py',22),
+  ('function -> INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE','function',7,'p_function','c_parser.py',26),
+  ('unary_op -> NEGATION exp','unary_op',2,'p_unary_op','c_parser.py',31),
+  ('unary_op -> BITWISE_COMPLEMENT exp','unary_op',2,'p_unary_op','c_parser.py',32),
+  ('unary_op -> LOGICAL_NEGATION exp','unary_op',2,'p_unary_op','c_parser.py',33),
+  ('exp -> unary_op','exp',1,'p_exp','c_parser.py',38),
+  ('exp -> INTEGER','exp',1,'p_exp','c_parser.py',39),
+  ('statement -> RETURN exp SEMICOLON','statement',3,'p_statement','c_parser.py',44),
 ]

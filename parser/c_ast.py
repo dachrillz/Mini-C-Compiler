@@ -45,6 +45,13 @@ class function_node(AST):
     def __repr__(self):
         return "function: " + self.name + "::" + self.type #+ ', ' + str(self.children[0]) + ', ' + str(self.children[1])
     
+class unary_node(AST):
+    def __init__(self, operation, expr):
+        self.operation = operation
+        self.children = expr
+
+    def __repr__(self):
+        return "unary::" + str(self.operation)
 
 class constant_node(AST):
     def __init__(self, value):

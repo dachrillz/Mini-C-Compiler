@@ -5,28 +5,36 @@ Grammar
 Rule 0     S' -> program
 Rule 1     program -> function
 Rule 2     function -> INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE
-Rule 3     exp -> INTEGER
-Rule 4     statement -> RETURN exp SEMICOLON
+Rule 3     unary_op -> NEGATION exp
+Rule 4     unary_op -> BITWISE_COMPLEMENT exp
+Rule 5     unary_op -> LOGICAL_NEGATION exp
+Rule 6     exp -> unary_op
+Rule 7     exp -> INTEGER
+Rule 8     statement -> RETURN exp SEMICOLON
 
 Terminals, with rules where they appear
 
+BITWISE_COMPLEMENT   : 4
 IDENTIFIER           : 2
 INT                  : 2
-INTEGER              : 3
+INTEGER              : 7
 LBRACE               : 2
+LOGICAL_NEGATION     : 5
 LPAREN               : 2
+NEGATION             : 3
 RBRACE               : 2
-RETURN               : 4
+RETURN               : 8
 RPAREN               : 2
-SEMICOLON            : 4
+SEMICOLON            : 8
 error                : 
 
 Nonterminals, with rules where they appear
 
-exp                  : 4
+exp                  : 3 4 5 8
 function             : 1
 program              : 0
 statement            : 2
+unary_op             : 6
 
 Parsing method: LALR
 
@@ -36,29 +44,29 @@ state 0
     (1) program -> . function
     (2) function -> . INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE
 
-    INT             shift and go to state 2
+    INT             shift and go to state 3
 
-    function                       shift and go to state 3
-    program                        shift and go to state 1
+    function                       shift and go to state 1
+    program                        shift and go to state 2
 
 state 1
+
+    (1) program -> function .
+
+    $end            reduce using rule 1 (program -> function .)
+
+
+state 2
 
     (0) S' -> program .
 
 
 
-state 2
+state 3
 
     (2) function -> INT . IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE
 
     IDENTIFIER      shift and go to state 4
-
-
-state 3
-
-    (1) program -> function .
-
-    $end            reduce using rule 1 (program -> function .)
 
 
 state 4
@@ -85,52 +93,139 @@ state 6
 state 7
 
     (2) function -> INT IDENTIFIER LPAREN RPAREN LBRACE . statement RBRACE
-    (4) statement -> . RETURN exp SEMICOLON
+    (8) statement -> . RETURN exp SEMICOLON
 
-    RETURN          shift and go to state 8
+    RETURN          shift and go to state 9
 
-    statement                      shift and go to state 9
+    statement                      shift and go to state 8
 
 state 8
 
-    (4) statement -> RETURN . exp SEMICOLON
-    (3) exp -> . INTEGER
+    (2) function -> INT IDENTIFIER LPAREN RPAREN LBRACE statement . RBRACE
 
-    INTEGER         shift and go to state 10
+    RBRACE          shift and go to state 10
 
-    exp                            shift and go to state 11
 
 state 9
 
-    (2) function -> INT IDENTIFIER LPAREN RPAREN LBRACE statement . RBRACE
+    (8) statement -> RETURN . exp SEMICOLON
+    (6) exp -> . unary_op
+    (7) exp -> . INTEGER
+    (3) unary_op -> . NEGATION exp
+    (4) unary_op -> . BITWISE_COMPLEMENT exp
+    (5) unary_op -> . LOGICAL_NEGATION exp
 
-    RBRACE          shift and go to state 12
+    INTEGER         shift and go to state 12
+    NEGATION        shift and go to state 15
+    BITWISE_COMPLEMENT shift and go to state 13
+    LOGICAL_NEGATION shift and go to state 11
 
+    unary_op                       shift and go to state 14
+    exp                            shift and go to state 16
 
 state 10
-
-    (3) exp -> INTEGER .
-
-    SEMICOLON       reduce using rule 3 (exp -> INTEGER .)
-
-
-state 11
-
-    (4) statement -> RETURN exp . SEMICOLON
-
-    SEMICOLON       shift and go to state 13
-
-
-state 12
 
     (2) function -> INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE .
 
     $end            reduce using rule 2 (function -> INT IDENTIFIER LPAREN RPAREN LBRACE statement RBRACE .)
 
 
+state 11
+
+    (5) unary_op -> LOGICAL_NEGATION . exp
+    (6) exp -> . unary_op
+    (7) exp -> . INTEGER
+    (3) unary_op -> . NEGATION exp
+    (4) unary_op -> . BITWISE_COMPLEMENT exp
+    (5) unary_op -> . LOGICAL_NEGATION exp
+
+    INTEGER         shift and go to state 12
+    NEGATION        shift and go to state 15
+    BITWISE_COMPLEMENT shift and go to state 13
+    LOGICAL_NEGATION shift and go to state 11
+
+    unary_op                       shift and go to state 14
+    exp                            shift and go to state 17
+
+state 12
+
+    (7) exp -> INTEGER .
+
+    SEMICOLON       reduce using rule 7 (exp -> INTEGER .)
+
+
 state 13
 
-    (4) statement -> RETURN exp SEMICOLON .
+    (4) unary_op -> BITWISE_COMPLEMENT . exp
+    (6) exp -> . unary_op
+    (7) exp -> . INTEGER
+    (3) unary_op -> . NEGATION exp
+    (4) unary_op -> . BITWISE_COMPLEMENT exp
+    (5) unary_op -> . LOGICAL_NEGATION exp
 
-    RBRACE          reduce using rule 4 (statement -> RETURN exp SEMICOLON .)
+    INTEGER         shift and go to state 12
+    NEGATION        shift and go to state 15
+    BITWISE_COMPLEMENT shift and go to state 13
+    LOGICAL_NEGATION shift and go to state 11
+
+    unary_op                       shift and go to state 14
+    exp                            shift and go to state 18
+
+state 14
+
+    (6) exp -> unary_op .
+
+    SEMICOLON       reduce using rule 6 (exp -> unary_op .)
+
+
+state 15
+
+    (3) unary_op -> NEGATION . exp
+    (6) exp -> . unary_op
+    (7) exp -> . INTEGER
+    (3) unary_op -> . NEGATION exp
+    (4) unary_op -> . BITWISE_COMPLEMENT exp
+    (5) unary_op -> . LOGICAL_NEGATION exp
+
+    INTEGER         shift and go to state 12
+    NEGATION        shift and go to state 15
+    BITWISE_COMPLEMENT shift and go to state 13
+    LOGICAL_NEGATION shift and go to state 11
+
+    unary_op                       shift and go to state 14
+    exp                            shift and go to state 19
+
+state 16
+
+    (8) statement -> RETURN exp . SEMICOLON
+
+    SEMICOLON       shift and go to state 20
+
+
+state 17
+
+    (5) unary_op -> LOGICAL_NEGATION exp .
+
+    SEMICOLON       reduce using rule 5 (unary_op -> LOGICAL_NEGATION exp .)
+
+
+state 18
+
+    (4) unary_op -> BITWISE_COMPLEMENT exp .
+
+    SEMICOLON       reduce using rule 4 (unary_op -> BITWISE_COMPLEMENT exp .)
+
+
+state 19
+
+    (3) unary_op -> NEGATION exp .
+
+    SEMICOLON       reduce using rule 3 (unary_op -> NEGATION exp .)
+
+
+state 20
+
+    (8) statement -> RETURN exp SEMICOLON .
+
+    RBRACE          reduce using rule 8 (statement -> RETURN exp SEMICOLON .)
 
