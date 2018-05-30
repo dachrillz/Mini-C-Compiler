@@ -7,9 +7,14 @@ import collections
 from lexer import tokens
 
 def traverse_post_order(root):
+    '''
+    @TODO: This function can probably be removed later as its functionality
+    was moved to the AST_Visitor class
+    '''
     result = []
 
     def recurse(node):
+
         if node is None:
             return
         if type(node.children) == list:
@@ -23,6 +28,68 @@ def traverse_post_order(root):
     recurse(root)
 
     return result
+
+
+class AST_visitor():
+    def __init__(self):
+        pass
+
+
+    def generate_code(self, root):
+        
+        tab = 4 * ' '
+        
+        post_order_list = self.traverse_AST_post_order(root)
+        stack = collections.deque()
+
+        def consume_node(node):
+            if isinstance(node, function_node):
+                name = node.name
+                function_string = '.globl ' + name + '\n' + name + ':'
+                stack.appendleft(function_string)
+
+            elif isinstance(node, statement_node):
+                if isinstance(node, return_node):
+                    value_to_return = stack.popleft()
+                    return_string = 'movl' + tab + '$' + str(value_to_return) + ' ,%eax \nret'
+                    stack.appendleft(return_string)
+                    
+                    
+            elif isinstance(node, constant_node):
+                stack.appendleft(node.value)      
+
+        for node in post_order_list:
+            consume_node(node)
+
+        for item in stack:
+            print(item)
+
+    
+    def traverse_AST_post_order(self,root):
+        '''
+        @TODO: Look up how it is with generators, if the tree is large, we might not want to 
+        load the full tree into memory
+        '''
+        result = []
+
+        def recurse(node):
+            if node is None:
+                return
+            if type(node.children) == list:
+                for item in node.children:
+                    recurse(item)
+            else:
+                recurse(node.children)
+
+            #@TODO: rewrite so that this function is capable of directly calling the consume method in this class.
+            result.append(node)
+
+        recurse(root)
+
+        return result
+
+
+    
 
 class AST():
     pass
@@ -59,9 +126,9 @@ class statement_node(AST):
     def __repr__(self):
         return 'statement'
 
-class return_node(AST):
-    def __init__(self):
-        self.children = None
+class return_node(statement_node):
+    def __init__(self,expression):
+        self.children = expression
 
     def __repr__(self):
         return 'return'
@@ -81,8 +148,6 @@ Minimal Grammar of the C-language
 <statement> ::= "return" <exp> ";"
 <exp> ::= <int>
 '''
-
-
 #dictionary of names
 names = {}
 
@@ -102,7 +167,7 @@ def p_exp(t):
 def p_statement(t): #expression as list!
     '''statement : RETURN exp SEMICOLON
                   '''
-    t[0] = statement_node([return_node(), t[2]])
+    t[0] = return_node(t[2])
 
   
 def p_error(t):
@@ -118,18 +183,17 @@ def get_parser():
 
 
 if __name__ == '__main__':
-    s = '''int main() {
-    return 2;
-    }
-    '''
+    import sys
+    file_to_compile = sys.stdin.readlines()
 
+    file_to_compile = ''.join(file_to_compile)
 
     parser_instance = yacc.yacc()
 
-    result = parser_instance.parse(s)
+    result = parser_instance.parse(file_to_compile)
 
-    result = traverse_post_order(result)
+    #traverse_post_order(result)
 
-    for item in reversed(result):
-        print(item)
+    AST_i = AST_visitor()
 
+    AST_i.generate_code(result)
