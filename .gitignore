@@ -102,3 +102,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+#My definitions
+/.vscode
+*.out
+
+#not sure if we want this, but is fine for now
+*.s
+
