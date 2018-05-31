@@ -45,6 +45,7 @@ class AST_visitor():
         tab = 4 * ' '
         
         post_order_list = self.traverse_AST_post_order(root)
+
         stack = collections.deque()
 
         def consume_node(node):
@@ -55,16 +56,38 @@ class AST_visitor():
 
             elif isinstance(node, ast.statement_node):
                 if isinstance(node, ast.return_node):
-                    value_to_return = stack.popleft()
-                    return_string = 'movl' + tab + '$' + str(value_to_return) + ' ,%eax \nret'
-                    stack.appendleft(return_string)
-                    
-                    
-            elif isinstance(node, ast.constant_node):
-                stack.appendleft(node.value)      
+                    first_instruction = True
+                    while stack:
+                        instructions_for_function = stack.popleft()
+                        if first_instruction == True:
+                            return_string = 'movl' + tab + '$' + str(instructions_for_function) + ' ,%eax'
+                            first_instruction = False    
+                        else:
+                            return_string += '\n' + str(instructions_for_function)
 
-        for node in post_order_list:
-            consume_node(node)
+                    return_string +=  '\nret'
+
+                    stack.appendleft(return_string)
+                          
+            elif isinstance(node, ast.constant_node):
+                stack.appendleft(node.value)
+
+            elif isinstance(node, ast.unary_node):
+                if isinstance(node, ast.negation_node):
+                    value_to_negate = 'neg ' + tab + '%eax'
+                    stack.append(value_to_negate)
+                elif isinstance(node, ast.bitwise_complement_node):
+                    value = 'not ' + tab + '%eax'
+                    stack.append(value)
+                    
+                elif isinstance(node, ast.logical_negation_node):
+                    value  = 'cmpl' + tab + '$0, %eax\n'
+                    value += 'movl' + tab + '$0, %eax\n'
+                    value += 'sete' + tab + '%al'
+                    stack.append(value)
+
+        while post_order_list:
+            consume_node(post_order_list.popleft())
 
         for item in stack:
             print(item)
@@ -91,7 +114,7 @@ class AST_visitor():
 
         recurse(root)
 
-        return result
+        return collections.deque(result)
 
         
 if __name__ == '__main__':
