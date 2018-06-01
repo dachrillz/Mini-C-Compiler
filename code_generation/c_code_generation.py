@@ -86,6 +86,7 @@ class AST_visitor():
             consume_node(post_order_list.popleft())
 
         result = ''.join(stack)
+        result += '\n' #to make gcc stop complaining
 
         return result
 

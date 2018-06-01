@@ -20,7 +20,7 @@ for item in path_valid:
 
         #call the compiler to generate assembly'
         print('\ttesting file: ' + filename)
-        subprocess.call(["python3", '../minic.py', filename])
+        subprocess.call(["python3", '../minic.py', filename]) #@TODO: it feels like this spawns another thread -> check if it is blocking!
 
         #convert assembly to binary and run it
         child = subprocess.Popen('./run_compiled.sh', shell=True)

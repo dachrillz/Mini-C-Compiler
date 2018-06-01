@@ -3,6 +3,7 @@ import sys
 #sys.path.append('code_generation/')
 
 import parser.c_parser as c_parser
+import parser.c_ast
 import code_generation.c_code_generation as c_code_generation
 
 def run_compiler(file_to_compile,out):
@@ -11,6 +12,8 @@ def run_compiler(file_to_compile,out):
 
     result = parser_instance.parse(file_to_compile)
 
+    #result.pprint(result)
+
     AST_i = c_code_generation.get_AST_visitor()
 
     result = AST_i.generate_code(result)
@@ -18,11 +21,15 @@ def run_compiler(file_to_compile,out):
     write_to = open(out, 'w')
     write_to.write(result)
 
+    #@TODO: close the file?
+
 
 if __name__ == '__main__':
     
     file_to_compile = open(sys.argv[1], 'r')
     file_to_compile = file_to_compile.readlines()
+
+    #@TODO: close file?
 
     file_to_compile = ''.join(file_to_compile)
     

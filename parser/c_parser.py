@@ -32,7 +32,7 @@ def p_unary_op(t):
                 | BITWISE_COMPLEMENT exp
                 | LOGICAL_NEGATION exp'''
 
-    value = constant_node(t[2])
+    value = t[2]
     if t[1] == '!':
         t[0] = logical_negation_node(value, '!')
     elif t[1] == '-':
@@ -44,7 +44,7 @@ def p_exp(t):
     '''exp : unary_op %prec UNARY_OP
            | INTEGER'''
 
-    if type(t[-1]) == int:
+    if type(t[1]) is int:
         t[0] = constant_node(t[1])
     else:
         t[0] = t[1]
@@ -56,15 +56,21 @@ def p_statement(t):
 
   
 def p_error(t):
-    if t is None:
-        print("Syntax error at '%s'" % t)
-    else:
-        print("Syntax error at '%s'" % t.value)
+    import sys
+    try:
+        print("\tSyntax error at '%s'" % t.value)
+        sys.exit() #this is fine for now, but the compiler needs more sophisticated error handling later!
+    except AttributeError:
+        print("\tSyntax error at '%s'" % t)
+        print("custom error!")
+        sys.exit()
     parser_instance.errok()
 
 
+parser_instance = yacc.yacc()
+
 def get_parser():
-    return yacc.yacc() 
+    return parser_instance
 
 
 if __name__ == '__main__':
@@ -81,7 +87,7 @@ if __name__ == '__main__':
 
         if s == 'sample':
             s = '''int main() {
-    return !2;
+    return 2;
 }
 '''
 
