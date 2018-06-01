@@ -1,4 +1,4 @@
-import ply.lex as lex
+import parser.ply.lex as lex
 '''
 This file handles all the lexing of the compiler. That is, it takes a 
 string that is a legal C program, and chops it up into atomic pieces 

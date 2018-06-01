@@ -46,12 +46,35 @@ class function_node(AST):
         return "function: " + self.name + "::" + self.type #+ ', ' + str(self.children[0]) + ', ' + str(self.children[1])
     
 class unary_node(AST):
-    def __init__(self, operation, expr):
-        self.operation = operation
+    pass
+
+class logical_negation_node(unary_node):
+    def __init__(self, expr, operation):
         self.children = expr
+        self.operation = '!'
 
     def __repr__(self):
-        return "unary::" + str(self.operation)
+        return "negation node::" + '!'
+
+class negation_node(unary_node):
+    def __init__(self, expr, operation):
+        self.children = expr
+        self.operation = '-'
+
+    def __repr__(self):
+        return "negation node::" + '-'
+
+class bitwise_complement_node(unary_node):
+    def __init__(self, expr, operation):
+        self.children = expr
+        self.operation = '~'
+
+    def __repr__(self):
+        return "bitwise_complement_node::" + '~'
+
+    
+
+    
 
 class constant_node(AST):
     def __init__(self, value):

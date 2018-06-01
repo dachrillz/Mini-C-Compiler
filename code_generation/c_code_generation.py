@@ -6,10 +6,7 @@ That is it takes the root of the AST and outputs a String that is a legal x86 As
 '''
 
 import collections
-import sys
-sys.path.append('../parser')
-import c_parser
-import c_ast as ast
+import parser.c_ast as ast
 
 def traverse_post_order(root):
     '''
@@ -33,7 +30,6 @@ def traverse_post_order(root):
     recurse(root)
 
     return result
-
 
 class AST_visitor():
     def __init__(self):
@@ -89,8 +85,9 @@ class AST_visitor():
         while post_order_list:
             consume_node(post_order_list.popleft())
 
-        for item in stack:
-            print(item)
+        result = ''.join(stack)
+
+        return result
 
     
     def traverse_AST_post_order(self,root):
@@ -116,8 +113,15 @@ class AST_visitor():
 
         return collections.deque(result)
 
+
+
+def get_AST_visitor():
+    return AST_visitor()
+
         
 if __name__ == '__main__':
+    import parser.c_parser as c_parser
+    import sys
     
     file_to_compile = sys.stdin.readlines()
 
@@ -127,7 +131,7 @@ if __name__ == '__main__':
 
     result = parser_instance.parse(file_to_compile)
 
-    result.pprint(result)
+    #result.pprint(result)
 
     AST_i = AST_visitor()
 

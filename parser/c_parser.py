@@ -1,6 +1,6 @@
-import ply.yacc as yacc
-from c_ast import *
-from lexer import tokens
+import parser.ply.yacc as yacc
+from parser.c_ast import *
+from parser.lexer import tokens
         
 '''
 Minimal Grammar of the C-language
@@ -32,13 +32,22 @@ def p_unary_op(t):
                 | BITWISE_COMPLEMENT exp
                 | LOGICAL_NEGATION exp'''
 
-    t[0] = unary_node(t[1], constant_node(t[2]))
+    value = constant_node(t[2])
+    if t[1] == '!':
+        t[0] = logical_negation_node(value, '!')
+    elif t[1] == '-':
+        t[0] = negation_node(value, '-')
+    elif t[1] == '~':
+        t[0] = bitwise_complement_node(value, '~')
 
 def p_exp(t):
     '''exp : unary_op %prec UNARY_OP
            | INTEGER'''
 
-    t[0] = t[1]
+    if type(t[-1]) == int:
+        t[0] = constant_node(t[1])
+    else:
+        t[0] = t[1]
 
 def p_statement(t):
     '''statement : RETURN exp SEMICOLON
